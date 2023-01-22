@@ -1,0 +1,73 @@
+:root {
+    --blanco: #fff;
+    --negro: #000;
+    --colorFondo: rgb(202, 194, 246);
+    --colorBoton: rgb(94, 84, 231);
+    --colorBotonOscuro: rgb(72, 62, 225);
+}
+
+html {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 16px;
+}
+
+.contenedor {
+    width: 95%;
+    max-width: 80rem;
+    margin: auto;
+}
+
+.header {
+    width: 100%;
+    background-image: url(img/header.jpeg);
+    height: 30rem;
+    background-size: cover;
+    border-radius: 1rem;
+    background-position: center;
+    margin-bottom: 3rem;
+}
+
+.opacity {
+    width: 100%;
+    height: 100%;
+    background-color: var(--negro);
+    opacity: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+}
+
+.titulo {
+    color: var(--blanco);
+    margin: 10rem;
+}
+
+.subir_excel {
+    display: flex;
+    flex-direction: column;
+    row-gap: 2rem;
+}
+
+@media (min-width: 620px) {
+    .subir_excel {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.boton {
+    background-color: var(--colorBoton);
+    color: var(--blanco);
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.boton:hover {
+    background-color: var(--colorBotonOscuro);
+}

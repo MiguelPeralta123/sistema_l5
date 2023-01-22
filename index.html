@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratorio L5</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Estilos para fuente -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Librería para leer archivos de Excel -->
+    <script src="https://unpkg.com/read-excel-file@4.1.0/bundle/read-excel-file.min.js"></script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="opacity">
+        <h1 class="titulo">Tiempo de uso del laboratorio de sistemas L5</h1>
+      </div>
+    </header>
+
+    <main class="contenedor">
+        <div class="subir_excel">
+            <div>
+                <label for="excel">Seleccione un archivo</label>
+                <input type="file" name="input" id="input">
+            </div>
+            <div>
+                <button class="boton" onclick="leerExcel()">Generar reporte</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>
