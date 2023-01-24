@@ -18,6 +18,9 @@
 
     <!-- Librería para crear gráficas -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
+
+    <!-- Libreria para crear pdf -->
+    <script src="jspdf.min.js"></script>
   </head>
 
   <body>
@@ -34,7 +37,7 @@
                 <input type="file" name="input" id="input">
             </div>
             <div>
-                <button class="boton" onclick="leerExcel()">Generar reporte</button>
+                <button class="boton" onclick="validarExcel()">Generar reporte</button>
             </div>
         </div>
         <canvas id="grafica"></canvas>

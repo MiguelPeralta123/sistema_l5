@@ -1,3 +1,12 @@
+function validarExcel() {
+  var input = document.getElementById("input");
+  if (input.files[0]) {
+    leerExcel()
+  } else {
+    alert("Debe seleccionar un documento de Excel")
+  }
+}
+
 function leerExcel() {
   var input = document.getElementById("input");
   readXlsxFile(input.files[0]).then(function (data) {
@@ -67,16 +76,16 @@ function calculandoHoras(registros) {
           // contar el tiempo que paso entre el registro de entrada y el de salida, guardar en un arreglo junto con la fecha
           let resta = registros[i][1].getTime() - noControl[j][1].getTime();
 
-          /*console.log(
+          console.log(
             `${noControl[j][0]} pasó ${Math.round(
               resta / (1000 * 60)
-            )} en el laboratorio de sistemas el dia ${noControl[j][1]}`
-          );*/
+            )} en el laboratorio de sistemas el dia ${registros[i][1]}`
+          );
 
           // Añadimos el objeto {minutos, dia} al arreglo para crear la grafica
           datosGrafica.push({
             minutos: Math.round(resta / (1000 * 60)),
-            dia: noControl[j][1],
+            dia: registros[i][1],
           });
           continue;
         }
@@ -94,18 +103,24 @@ function calculandoHoras(registros) {
 }
 
 function procesarDatosGrafica(dias, datosGrafica) {
+  minutos = []
+  console.log(datosGrafica)
   for (let i = 0; i < datosGrafica.length; i++) {
     minutos.push({
       dia: datosGrafica[i].dia.toString().substring(0, 10),
       tiempo: datosGrafica[i].minutos,
     });
   }
+
   crearGrafica(dias, minutos);
 }
 
 var tiempo = [];
 
 function crearGrafica(dias, minutos) {
+
+  tiempo = []
+
   for (let i = 0; i < dias.length; i++) {
     for (let j = 0; j < minutos.length; j++) {
       if (dias[i] == minutos[j].dia) {
@@ -118,6 +133,9 @@ function crearGrafica(dias, minutos) {
 
   // Para crear la gráfica, vamos a usar los arrays dias y tiempo
   var grafica = document.getElementById("grafica");
+
+  console.log(dias)
+  console.log(tiempo)
 
   const usoLaboratorio = {
     label: "Minutos de uso del laboratorio L5",
@@ -154,5 +172,14 @@ function crearBotonImprimir() {
 }
 
 function imprimirReporte() {
-  alert("Imprimiendo reporte")
+  var doc = new jsPDF()
+  var cadenaMinutos = ""
+  for (let i = 0; i < minutos.length; i++) {
+    cadenaMinutos += `Día ${minutos[i].dia}: ${minutos[i].tiempo} minutos\n\n`
+  }
+  var cadena = `Reporte de uso del laboratorio L5\n\n${cadenaMinutos}`
+
+  doc.text(20, 20, cadena);
+
+  doc.save('test.pdf')
 }
