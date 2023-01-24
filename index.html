@@ -15,6 +15,9 @@
 
     <!-- Librería para leer archivos de Excel -->
     <script src="https://unpkg.com/read-excel-file@4.1.0/bundle/read-excel-file.min.js"></script>
+
+    <!-- Librería para crear gráficas -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@latest/dist/Chart.min.js"></script>
   </head>
 
   <body>
@@ -34,6 +37,8 @@
                 <button class="boton" onclick="leerExcel()">Generar reporte</button>
             </div>
         </div>
+        <canvas id="grafica"></canvas>
+        <div id="imprimir"></div>
     </main>
 
     <script src="index.js"></script>
